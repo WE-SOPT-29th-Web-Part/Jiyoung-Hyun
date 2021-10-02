@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <heade class="header"> 
+    <h1 class="header_logo">To Do List</h1>
+  </header>
+  <nav class="options"> 
+    <button class="options__today">오늘만 보기</button>
+    <button class="options__tomorrow">내일만 보기</button>
+    <button class="options__both">함께 보기</button>
+  </nav>
+  <main class="todos">
+    <section class="todos__today">
+      <h2 class="todos_header">오늘 할일</h2>
+      <ul class="todos_items">
+        <li class="todos_item">
+          <span class="todos__name">HTMl 공부</span>
+          <button class="todos__delete"></button>
+        </li>
+        <li class="todos__item">
+          <span>CSS 공부</span>
+          <button class="todos__delete"></button>
+        </li>
+      </ul>
+      <input class="todos__input" type="text">
+      <div class="todos__btn-wrapper">
+        <button class="todos__add"></button>
+      </div>
+    </section>
+    <section class="todos__today">
+      <h2 class="todos_header">내일 할일</h2>
+      <ul class="todos_items">
+        <li class="todos_item">
+          <span class="todos__name">Javascript 공부</span>
+          <button class="todos__delete"></button>
+        </li>
+        <li class="todos__item">
+          <span>React 공부</span>
+          <button class="todos__delete"></button>
+        </li>
+      </ul>
+      <input class="todos__input" type="text">
+      <div class="todos__btn-wrapper">
+        <button class="todos__add"></button>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"></footer>
+</body>
+</html>
