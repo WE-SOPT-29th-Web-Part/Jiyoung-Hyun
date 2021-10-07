@@ -1,0 +1,45 @@
+* {
+  background-color: #f8f9fa;
+}
+body {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/*header*/
+header {
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+}
+header div {
+  flex: 1;
+}
+.logo__icon {
+  width: 80px;
+}
+header button:first-of-type {
+  border: none;
+}
+header button:first-of-type:hover {
+  cursor: pointer;
+}
+.search__icon {
+  width: 20px;
+}
+header button:nth-of-type(2){
+  width: 80px;
+  height: 32px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #343a40;
+  border: 1px solid #343a40;
+  border-radius: 20px;
+  margin-left: 20px;
+}
+header button:nth-of-type(2){
+  cursor: pointer;
+}
