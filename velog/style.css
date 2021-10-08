@@ -120,6 +120,7 @@ main {
   display: flex;
   flex-direction: column;
   margin: 10px;
+  word-break:keep-all;
 }
 .card:hover {
   cursor: pointer;
