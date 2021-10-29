@@ -11,7 +11,7 @@ const SearchBar = ({ setUserInfo }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { data } = await axios.get(`https://api.github.com/users/shji023`);
+    const { data } = await axios.get(`https://api.github.com/users/${user}`);
     setUserInfo(data);
   };
 

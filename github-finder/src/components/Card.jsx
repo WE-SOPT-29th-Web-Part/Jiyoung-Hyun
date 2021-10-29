@@ -4,19 +4,19 @@ import Styled from "styled-components";
 const Card = ({ userInfo, setUserInfo }) => {
   return userInfo.avatar_url ? (
     <CardContainer>
-      <div>
+      <Profile>
         <img src={userInfo.avatar_url} alt="" />
         <p>{userInfo.name}</p>
         <p>{userInfo.login}</p>
         <a href={userInfo.url}>Visit Github</a>
-      </div>
-      <div>
+      </Profile>
+      <Info>
         <ul>
           <li>Followers:{userInfo.followers}</li>
           <li>Following:{userInfo.following}</li>
           <li>Repos:{userInfo.public_repos}</li>
         </ul>
-      </div>
+      </Info>
       <Button onClick={() => setUserInfo({})}>X</Button>
     </CardContainer>
   ) : (
@@ -26,23 +26,35 @@ const Card = ({ userInfo, setUserInfo }) => {
 
 const CardContainer = Styled.div`
   display: flex;
-  img {
+  font-family: 'ZenAntique';
+  border: 1px solid #304b1b;
+  padding: 10px;
+`;
+
+const Profile = Styled.div`
+  margin-right: 30px;
+  & > img {
     width: 100px;
     height: 100px;
   }
-  p:nth-of-type(1) {
+  & > p:nth-of-type(1) {
     font-size: 26px;
-  }
-  p:nth-of-type(2) {
-    font-size: 16px;
     font-weight: bold;
+    margin: 5px;
   }
-  a {
+  & > p:nth-of-type(2) {
+    font-size: 16px;
+  }
+  & > a {
     text-decoration: none;
     color: #304b1b;
   }
-  div {
-    margin-right: 30px;
+`;
+
+const Info = Styled.div`
+  margin-right: 30px;
+  & > ul {
+    margin-top: 155px;
   }
 `;
 
