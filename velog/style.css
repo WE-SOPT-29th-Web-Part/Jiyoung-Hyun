@@ -48,6 +48,19 @@ header button:nth-of-type(2){
 header button:nth-of-type(2){
   cursor: pointer;
 }
+header a {
+  width: 100px;
+  height: 32px;
+  color: rgb(12, 166, 120);
+  background-color: white;
+  border: 2px solid rgb(12, 166, 120);
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px;
+  margin-left: 20px;
+}
 
 /*nav*/
 nav {
@@ -127,7 +140,7 @@ li {
   border-top: none;
 }
 .dropdown__list.active {
-  color: green;
+  color: rgb(12, 166, 120);
 }
 .more {
   border: none;
