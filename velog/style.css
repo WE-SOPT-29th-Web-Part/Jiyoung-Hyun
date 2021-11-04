@@ -162,6 +162,7 @@ main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px 25px;
+  position: relative;
 }
 .card {
   width: 320px;
@@ -171,6 +172,7 @@ main {
   display: flex;
   flex-direction: column;
   word-break:keep-all;
+  position: relative;
 }
 .card:hover {
   cursor: pointer;
@@ -227,4 +229,38 @@ main {
   height: 20px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.card__modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: hidden;
+}
+
+.card__modal {
+  transition: none;
+}
+
+.card__modal:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.card__modal-close-btn {
+  position: absolute;
+  bottom: 0px;
+  right: 50%;
+  transform: translate(50%, 150%);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
 }
