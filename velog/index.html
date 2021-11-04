@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
   <title>velog</title>
 </head>
 <body>
@@ -18,21 +19,25 @@
     <button>로그인</button>
   </header>
   <nav>
-    <div>
-      <button>
+    <div class="left">
+      <button class="trending">
         <img src="assets/rise.png" alt="search">
         트렌딩
       </button>
-      <button>
+      <button class="new">
         <img src="assets/clock.png" alt="search">
         최신
       </button>
-      <select>
-        <option>오늘</option>
-        <option selected>이번 주</option>
-        <option>이번 달</option>
-        <option>올해</option>
-      </select>
+      <div class="period">
+        <span class="period__text">이번주</span>
+        <img src="assets/dropdown.png" alt="dropdown"/>
+        <ul class="dropdown">
+          <li class="dropdown__list">오늘</li>
+          <li class="dropdown__list">이번 주</li>
+          <li class="dropdown__list">이번 달</li>
+          <li class="dropdown__list">올해</li>
+        </ul>
+      </div>
     </div>
     <button class="more">
       <img src="assets/more.png" alt="more">
