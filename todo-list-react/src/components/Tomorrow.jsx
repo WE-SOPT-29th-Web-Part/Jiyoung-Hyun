@@ -24,14 +24,14 @@ function Tomorrow() {
   };
   return (
     <SRoot>
-      <div>
+      <SInput>
         <input
           onChange={onChange}
           value={input}
           placeholder="내일 할일"
         ></input>
-        <button onClick={onCreate}> 추가</button>
-      </div>
+        <SButton onClick={onCreate}> 추가</SButton>
+      </SInput>
       <div>
         {list.map((todo) => (
           <Todo todo={todo} key={todo.id} onRemove={onRemove} />
@@ -44,5 +44,19 @@ function Tomorrow() {
 const SRoot = Styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const SInput = Styled.div`
+  margin: 0 auto;
+`;
+
+const SButton = Styled.button`
+  border: none;
+  width: 70px;
+  height: 30px;
+  border-radius: 30px;
+  color: #ff9191;
+  font-size: 18px;
+  font-weight: bold;
 `;
 export default Tomorrow;
