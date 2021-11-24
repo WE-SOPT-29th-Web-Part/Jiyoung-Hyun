@@ -1,12 +1,11 @@
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
-import Card from "./components/Card";
+import NewCard from "./components/NewCard";
 import React, { useEffect, useState } from "react";
 import Styled from "styled-components";
 
 function App() {
-  const [userInfo, setUserInfo] = useState({});
-
+  const [userInfo, setUserInfo] = useState({ data: null, status: "idle" });
   useEffect(() => {
     console.log(userInfo);
   }, [userInfo]);
@@ -16,7 +15,7 @@ function App() {
         <Header />
         <SearchBar setUserInfo={setUserInfo} />
       </Title>
-      <Card userInfo={userInfo} setUserInfo={setUserInfo} />
+      <NewCard userInfo={userInfo} setUserInfo={setUserInfo} />
     </Wrapper>
   );
 }

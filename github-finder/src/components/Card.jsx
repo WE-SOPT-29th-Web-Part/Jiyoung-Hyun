@@ -2,7 +2,7 @@ import React from "react";
 import Styled from "styled-components";
 
 const Card = ({ userInfo, setUserInfo }) => {
-  return userInfo.avatar_url ? (
+  return (
     <CardContainer>
       <Profile>
         <img src={userInfo.avatar_url} alt="" />
@@ -19,8 +19,6 @@ const Card = ({ userInfo, setUserInfo }) => {
       </Info>
       <Button onClick={() => setUserInfo({})}>X</Button>
     </CardContainer>
-  ) : (
-    <></>
   );
 };
 
