@@ -1,7 +1,7 @@
 import React from "react";
 
 const ArticleCard = ({ article }) => {
-  const { id, body, title, summary, series, tags, thumbnail, date } = article;
+  const { title, summary, tags, thumbnail, date } = article;
   return (
     <div>
       <img src={thumbnail} alt="thumbnail" />
