@@ -7,7 +7,7 @@ const ArticleBody = ({ body, handleDataChange }) => {
       placeholder="텍스트를 입력하시오"
       value={body}
       onChange={(e) => handleDataChange("body", e.target.value)}
-    ></StyledTextarea>
+    />
   );
 };
 
