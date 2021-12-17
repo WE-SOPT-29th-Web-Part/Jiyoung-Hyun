@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../../../libs/constants/colors";
 import { StyledButton } from "../ArticleFooter";
 
-const PublishRightScreen = ({ createOrUpdateArticle, setIsPublishScreen }) => {
+const PublishSubmit = ({ createOrUpdateArticle, setIsPublishScreen }) => {
   const handlePost = async () => {
     await createOrUpdateArticle();
   };
@@ -17,7 +17,7 @@ const PublishRightScreen = ({ createOrUpdateArticle, setIsPublishScreen }) => {
   );
 };
 
-export default PublishRightScreen;
+export default PublishSubmit;
 
 const StyledRoot = styled.section`
   width: 100%;

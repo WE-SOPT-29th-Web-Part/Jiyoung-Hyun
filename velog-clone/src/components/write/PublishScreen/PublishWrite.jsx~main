@@ -4,7 +4,7 @@ import { imageClient } from "../../../libs/api";
 import { colors } from "../../../libs/constants/colors";
 import ImgWrapper from "../../common/ImgWrapper";
 
-const PublishLeftScreen = ({ articleData, handleDataChange }) => {
+const PublishWrite = ({ articleData, handleDataChange }) => {
   const MAX_NUM = 150;
   const { summary, thumbnail } = articleData;
   const [preViewImage, setPreViewImage] = useState(thumbnail);
@@ -53,7 +53,7 @@ const PublishLeftScreen = ({ articleData, handleDataChange }) => {
   );
 };
 
-export default PublishLeftScreen;
+export default PublishWrite;
 
 const StyledRoot = styled.div`
   width: 100%;
