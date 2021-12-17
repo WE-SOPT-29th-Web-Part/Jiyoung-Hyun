@@ -3,8 +3,11 @@ import Header from "../components/common/Header";
 import Profile from "../components/home/Profile";
 import HomeNav from "../components/home/HomeNav";
 import ArticlesContainer from "../components/home/ArticlesContainer";
+import SeriesCategory from "../components/home/SeriesCategory";
+
 import styled from "styled-components";
 import { Routes, Route } from "react-router-dom";
+
 const Home = () => {
   return (
     <StyledRoot>
@@ -13,6 +16,7 @@ const Home = () => {
         <Profile />
         <HomeNav />
         <Routes>
+          <Route path="/series" element={<SeriesCategory />} />
           <Route path="/" element={<ArticlesContainer />} />
         </Routes>
       </StyledMain>
