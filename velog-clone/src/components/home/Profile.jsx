@@ -5,7 +5,7 @@ import { colors } from "../../libs/constants/colors";
 import { ReactComponent as GithubIcon } from "../../assets/icons/github.svg";
 import { ReactComponent as HomeIcon } from "../../assets/icons/home.svg";
 import { ReactComponent as MailIcon } from "../../assets/icons/mail.svg";
-
+import { Link } from "react-router-dom";
 const Profile = () => {
   return (
     <StyledRoot>
@@ -18,15 +18,15 @@ const Profile = () => {
       </StyledProfile>
       <StyledCenterLine></StyledCenterLine>
       <StyledContact>
-        <a href="https://github.com/shji023" target="blank">
+        <Link to="/">
           <GithubIcon fill="lightGray" />
-        </a>
-        <a href="/" target="blank">
+        </Link>
+        <Link to="/">
           <HomeIcon fill="lightGray" />
-        </a>
-        <a href="/">
+        </Link>
+        <Link to="/">
           <MailIcon fill="lightGray" />
-        </a>
+        </Link>
       </StyledContact>
     </StyledRoot>
   );

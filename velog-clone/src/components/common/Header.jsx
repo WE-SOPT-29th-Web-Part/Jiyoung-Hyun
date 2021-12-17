@@ -4,18 +4,17 @@ import styled from "styled-components";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
 import { ReactComponent as ArrowDropDownImage } from "../../assets/icons/arrow_drop_down.svg";
 import { colors } from "../../libs/constants/colors";
-import { useNavigate } from "react-router";
 import profileImg from "../../assets/images/sopt_web.png";
 
 const Header = () => {
-  const navigate = useNavigate();
-
   return (
     <StyledRoot>
-      <StyledLeft onClick={() => navigate("/")}>
-        <div></div>
-        <span>sopt.log</span>
-      </StyledLeft>
+      <Link to="/write">
+        <StyledLeft>
+          <div></div>
+          <span>sopt.log</span>
+        </StyledLeft>
+      </Link>
       <StyledRight>
         <SearchIcon />
         <Link to="/write">
