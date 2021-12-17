@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { colors } from "../../../libs/constants/colors";
-import PublishLeftScreen from "./PublishLeftScreen";
-import PublishRightScreen from "./PublishRightScreen";
+import PublishWrite from "./PublishWrite";
+import PublishSubmit from "./PublishSubmit";
 
 const PublishScreen = ({
   articleData,
@@ -31,12 +31,12 @@ const PublishScreen = ({
   return (
     <StyledRoot isPublishScreen={isPublishScreen}>
       <StyledWrapper>
-        <PublishLeftScreen
+        <PublishWrite
           handleDataChange={handleDataChange}
           articleData={articleData}
         />
         <StyledCenterLine />
-        <PublishRightScreen
+        <PublishSubmit
           createOrUpdateArticle={createOrUpdateArticle}
           setIsPublishScreen={setIsPublishScreen}
         />
