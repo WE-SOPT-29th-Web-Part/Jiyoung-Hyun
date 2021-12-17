@@ -27,14 +27,18 @@ const Write = () => {
   const [isPublishScreen, setIsPublishScreen] = useState(false);
 
   const createOrUpdateArticle = async () => {
-    if (article) {
-      await client.patch(`/article/${article.id}`, articleData);
-      navigate(`/article/${article.id}`, { state: articleData });
-      return;
-    }
+    try {
+      if (article) {
+        await client.patch(`/article/${article.id}`, articleData);
+        navigate(`/article/${article.id}`, { state: articleData });
+        return;
+      }
 
-    await client.post("/article", articleData);
-    navigate("/");
+      await client.post("/article", articleData);
+      navigate("/");
+    } catch (e) {
+      return null;
+    }
   };
 
   const handleDataChange = (key, value) => {
