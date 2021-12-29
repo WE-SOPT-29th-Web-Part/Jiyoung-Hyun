@@ -10,7 +10,6 @@ function SearchBar({ setUserInfo }: IProps): React.ReactElement {
   const [historyList, setHistoryList] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log(localStorage);
     const storedHistory = localStorage.getItem("history");
     if (storedHistory) setHistoryList(JSON.parse(storedHistory));
   }, []);
