@@ -11,6 +11,18 @@ function SearchBar({ setUserInfo }: IProps): React.ReactElement {
 
   useEffect(() => {
     const storedHistory = localStorage.getItem("history");
+    // JSON.parse 의 반환값은 any -> JSON을 파싱한 결과를 그대로 setHistory 의 인자로 넘기는게 안전하지 않음
+    // const isStringArray = (arr: any[]): arr is string[] => arr.every((elem) => typeof elem === 'string');
+    // const safeJSONparseWithStringArr = (json: string): string[] => {
+    //   try {
+    //     const parseResult = JSON.parse(json);
+    //     if (!(parseResult instanceof Array)) return [];
+    //     if (!isStringArray(parseResult)) return [];
+    //     return parseResult;
+    //   } catch (error) {
+    //     throw Error('failed to parse JSON');
+    //   }
+    // };
     if (storedHistory) setHistoryList(JSON.parse(storedHistory));
   }, []);
 
