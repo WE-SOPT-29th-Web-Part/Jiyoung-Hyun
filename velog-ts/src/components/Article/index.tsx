@@ -15,8 +15,8 @@ function Article({ title, summary, thumbnail, tags, date }: IProps) {
       <div>{title}</div>
       <div>{summary}</div>
       <div>
-        {tags.map((tag: string) => (
-          <Tag tag={tag} />
+        {tags.map((tag: string, index) => (
+          <Tag key={index} tag={tag} />
         ))}
       </div>
       <div>{date}</div>

@@ -7,3 +7,11 @@ export interface IArticle {
   tags: string[];
   date: string;
 }
+
+export interface IPostArticle {
+  title: string;
+  body: string;
+  summary: string;
+  thumbnail: string;
+  tags: string[];
+}
