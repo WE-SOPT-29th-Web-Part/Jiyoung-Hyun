@@ -1,18 +1,15 @@
 import React from "react";
-import { IPostArticle } from "../../../types/article.type";
+import { dataHandlerType } from "../../../types/article.type";
 interface IProps {
-  setArticleData: React.Dispatch<React.SetStateAction<IPostArticle>>;
+  onDataChange: dataHandlerType;
 }
-function WriteTitle({ setArticleData }: IProps) {
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setArticleData((articleData) => ({
-      ...articleData,
-      title: e.target.value,
-    }));
-  };
+function WriteTitle({ onDataChange }: IProps) {
   return (
     <div>
-      <textarea placeholder="제목을 입력하세요" onChange={handleChange} />
+      <textarea
+        placeholder="제목을 입력하세요"
+        onChange={(e) => onDataChange("title", e.target.value)}
+      />
     </div>
   );
 }

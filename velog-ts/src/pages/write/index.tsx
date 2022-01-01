@@ -18,16 +18,42 @@ function Write() {
   };
   const [isPublishClicked, setIsPublishClicked] = useState(false);
 
+  const handleDataChange = (
+    key: "title" | "body" | "summary" | "thumbnail",
+    value: string
+  ) => {
+    // key: title, body, summary, thumbnail
+    // value: e.target.value
+    const tempArticleData = { ...articleData };
+    // 객체 복사 -> 상태는 불변성을 유지해야한다.
+    // 상태는 직접 변경하면 안되고 새로운 데이터를 정의해서 넣어주어야함
+    tempArticleData[key] = value;
+    setArticleData(tempArticleData);
+  };
+
+  const handleArrDataChange = (key: "tags", value: string) => {
+    const tempArticleData = { ...articleData };
+    tempArticleData[key] = [...tempArticleData[key], value];
+    setArticleData(tempArticleData);
+  };
+
+  const handleArrDataRemove = (key: "tags", innerText: string) => {
+    const tempArticleData = { ...articleData };
+    tempArticleData[key] = tempArticleData[key].filter(
+      (el) => el !== innerText
+    );
+    setArticleData(tempArticleData);
+  };
   return (
     <div>
-      <button onClick={submitArticle}>submit</button>
-      <WriteTitle setArticleData={setArticleData} />
+      <WriteTitle onDataChange={handleDataChange} />
       <WriteTags
         tags={articleData.tags}
         articleData={articleData}
-        setArticleData={setArticleData}
+        onArrDataChange={handleArrDataChange}
+        onArrDataRemove={handleArrDataRemove}
       />
-      <WriteBody setArticleData={setArticleData} />
+      <WriteBody onDataChange={handleDataChange} />
       <WriteButton setIsPublishClicked={setIsPublishClicked} />
       <WriteDetail
         articleData={articleData}
