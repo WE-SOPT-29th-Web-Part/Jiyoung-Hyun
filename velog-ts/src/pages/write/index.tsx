@@ -4,7 +4,7 @@ import WriteButton from "../../components/write/WriteButton";
 import WriteTitle from "../../components/write/WriteTitle";
 import WriteTags from "../../components/write/WriteTags";
 import WriteBody from "../../components/write/WriteBody";
-import { postArticle } from "../../apis/article.api";
+import { postArticle, updateArticle } from "../../apis/article.api";
 import WriteDetail from "../../components/write/WriteDetail";
 function Write() {
   const location = useLocation();
@@ -20,6 +20,10 @@ function Write() {
     }
   );
   const submitArticle = async () => {
+    if (article) {
+      await updateArticle(article.id, articleData);
+      return;
+    }
     await postArticle(articleData);
   };
   const [isPublishClicked, setIsPublishClicked] = useState(false);
@@ -52,17 +56,17 @@ function Write() {
   };
   return (
     <div>
-      <WriteTitle title={article.title} onDataChange={handleDataChange} />
+      <WriteTitle title={articleData.title} onDataChange={handleDataChange} />
       <WriteTags
         tags={articleData.tags}
         articleData={articleData}
         onArrDataChange={handleArrDataChange}
         onArrDataRemove={handleArrDataRemove}
       />
-      <WriteBody body={article.body} onDataChange={handleDataChange} />
+      <WriteBody body={articleData.body} onDataChange={handleDataChange} />
       <WriteButton setIsPublishClicked={setIsPublishClicked} />
       <WriteDetail
-        summary={article.titsummaryle}
+        summary={articleData.summary}
         onDataChange={handleDataChange}
         isPublishClicked={isPublishClicked}
         setIsPublishClicked={setIsPublishClicked}

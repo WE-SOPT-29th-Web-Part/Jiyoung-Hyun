@@ -48,3 +48,19 @@ export const deleteArticle = async (articleId: string) => {
     return null;
   }
 };
+
+export const updateArticle = async (
+  articleId: string,
+  articleData: IPostArticle
+) => {
+  try {
+    const data = await serverAxios.patch(
+      `${PREFIX_URL}/${articleId}`,
+      articleData
+    );
+    return data.data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
