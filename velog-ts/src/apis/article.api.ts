@@ -17,7 +17,6 @@ export const postArticle = async ({ ...articleData }: IPostArticle) => {
   try {
     const data = await serverAxios.post(`${PREFIX_URL}`, {
       ...articleData,
-      summary: "요약입니다.",
     });
     return data.data;
   } catch (error) {

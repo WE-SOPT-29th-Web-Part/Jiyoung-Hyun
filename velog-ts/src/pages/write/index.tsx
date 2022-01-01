@@ -4,6 +4,7 @@ import WriteTitle from "../../components/write/WriteTitle";
 import WriteTags from "../../components/write/WriteTags";
 import WriteBody from "../../components/write/WriteBody";
 import { postArticle } from "../../apis/article.api";
+import WriteDetail from "../../components/write/WriteDetail";
 function Write() {
   const [articleData, setArticleData] = useState({
     title: "",
@@ -15,6 +16,7 @@ function Write() {
   const submitArticle = async () => {
     await postArticle(articleData);
   };
+  const [isPublishClicked, setIsPublishClicked] = useState(false);
 
   return (
     <div>
@@ -26,7 +28,14 @@ function Write() {
         setArticleData={setArticleData}
       />
       <WriteBody setArticleData={setArticleData} />
-      <WriteButton />
+      <WriteButton setIsPublishClicked={setIsPublishClicked} />
+      <WriteDetail
+        articleData={articleData}
+        setArticleData={setArticleData}
+        isPublishClicked={isPublishClicked}
+        setIsPublishClicked={setIsPublishClicked}
+        submitArticle={submitArticle}
+      />
     </div>
   );
 }
