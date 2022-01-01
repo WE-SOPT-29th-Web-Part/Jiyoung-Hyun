@@ -39,3 +39,13 @@ export const postImage = async (formData: FormData) => {
     return null;
   }
 };
+
+export const deleteArticle = async (articleId: string) => {
+  try {
+    const data = await serverAxios.delete(`${PREFIX_URL}/${articleId}`);
+    return data.data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};

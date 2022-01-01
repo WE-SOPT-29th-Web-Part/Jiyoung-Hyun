@@ -6,13 +6,13 @@ import ArticleOptions from "../../components/ArticleOptions";
 import { ImgWrapper } from "./style";
 function Article() {
   const location = useLocation();
-  const { title, body, thumbnail, tags, date } = location.state;
+  const { id, title, body, thumbnail, tags, date } = location.state;
   console.log(location.state);
   return (
     <>
       <Header />
       <div>{title}</div>
-      <ArticleOptions></ArticleOptions>
+      <ArticleOptions articleId={id}></ArticleOptions>
       <div>
         {tags.map((tag: string, index: number) => (
           <Tag key={index} tag={tag} />
