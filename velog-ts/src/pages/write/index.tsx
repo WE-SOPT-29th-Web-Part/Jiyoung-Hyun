@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import WriteButton from "../../components/write/WriteButton";
 import WriteTitle from "../../components/write/WriteTitle";
 import WriteTags from "../../components/write/WriteTags";
@@ -6,13 +7,18 @@ import WriteBody from "../../components/write/WriteBody";
 import { postArticle } from "../../apis/article.api";
 import WriteDetail from "../../components/write/WriteDetail";
 function Write() {
-  const [articleData, setArticleData] = useState({
-    title: "",
-    body: "",
-    summary: "",
-    thumbnail: "",
-    tags: [""],
-  });
+  const location = useLocation();
+  const article = location.state;
+
+  const [articleData, setArticleData] = useState(
+    article ?? {
+      title: "",
+      body: "",
+      summary: "",
+      thumbnail: "",
+      tags: [""],
+    }
+  );
   const submitArticle = async () => {
     await postArticle(articleData);
   };
@@ -40,22 +46,23 @@ function Write() {
   const handleArrDataRemove = (key: "tags", innerText: string) => {
     const tempArticleData = { ...articleData };
     tempArticleData[key] = tempArticleData[key].filter(
-      (el) => el !== innerText
+      (el: string) => el !== innerText
     );
     setArticleData(tempArticleData);
   };
   return (
     <div>
-      <WriteTitle onDataChange={handleDataChange} />
+      <WriteTitle title={article.title} onDataChange={handleDataChange} />
       <WriteTags
         tags={articleData.tags}
         articleData={articleData}
         onArrDataChange={handleArrDataChange}
         onArrDataRemove={handleArrDataRemove}
       />
-      <WriteBody onDataChange={handleDataChange} />
+      <WriteBody body={article.body} onDataChange={handleDataChange} />
       <WriteButton setIsPublishClicked={setIsPublishClicked} />
       <WriteDetail
+        summary={article.titsummaryle}
         onDataChange={handleDataChange}
         isPublishClicked={isPublishClicked}
         setIsPublishClicked={setIsPublishClicked}

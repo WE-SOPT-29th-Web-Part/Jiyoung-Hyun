@@ -9,12 +9,14 @@ interface IProps {
   isPublishClicked: boolean;
   setIsPublishClicked: React.Dispatch<React.SetStateAction<boolean>>;
   submitArticle: () => void;
+  summary: string;
 }
 function WriteDetail({
   onDataChange,
   isPublishClicked,
   setIsPublishClicked,
   submitArticle,
+  summary,
 }: IProps) {
   const [animate, setAnimate] = useState(false);
   useEffect(() => {
@@ -47,6 +49,7 @@ function WriteDetail({
       <input type="file" onChange={handleImageChange} />
       <textarea
         placeholder="당신의 포스트를 짧게 소개해보세요"
+        value={summary}
         onChange={(e) => onDataChange("summary", e.target.value)}
       />
       <button onClick={() => setIsPublishClicked(false)}>취소하기</button>

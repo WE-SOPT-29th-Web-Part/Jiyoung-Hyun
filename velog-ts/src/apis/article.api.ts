@@ -32,7 +32,6 @@ export const postImage = async (formData: FormData) => {
         "Content-Type": "multipart/form-data",
       },
     });
-    console.log(data.data);
     return data.data;
   } catch (error) {
     console.log(error);
