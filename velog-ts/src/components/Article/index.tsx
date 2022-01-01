@@ -1,18 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { IArticle } from "../../types/article.type";
 import Tag from "../Tag";
 import { SRoot } from "./style";
 interface IProps {
-  title: string;
-  summary: string;
-  thumbnail: string;
-  tags: string[];
-  date: string;
+  article: IArticle;
 }
-function Article({ title, summary, thumbnail, tags, date }: IProps) {
+function Article({ article }: IProps) {
+  const { id, title, summary, thumbnail, tags, date } = article;
   return (
     <SRoot>
-      {thumbnail && <img src={thumbnail} alt="thumbnail" />}
-      <div>{title}</div>
+      <Link to={`article/${id}`} state={article}>
+        {thumbnail && <img src={thumbnail} alt="thumbnail" />}
+        <div>{title}</div>
+      </Link>
+
       <div>{summary}</div>
       <div>
         {tags.map((tag: string, index) => (

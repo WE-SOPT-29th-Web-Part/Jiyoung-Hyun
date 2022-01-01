@@ -17,14 +17,7 @@ function Articles() {
     <div>
       {articleList &&
         articleList.map((article: IArticle) => (
-          <Article
-            key={article.id}
-            title={article.title}
-            summary={article.summary}
-            thumbnail={article.thumbnail}
-            tags={article.tags}
-            date={article.date}
-          />
+          <Article key={article.id} article={article} />
         ))}
     </div>
   );
