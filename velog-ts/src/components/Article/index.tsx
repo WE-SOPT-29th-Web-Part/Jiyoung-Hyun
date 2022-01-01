@@ -1,6 +1,6 @@
 import React from "react";
 import Tag from "../Tag";
-
+import { SRoot } from "./style";
 interface IProps {
   title: string;
   summary: string;
@@ -10,7 +10,7 @@ interface IProps {
 }
 function Article({ title, summary, thumbnail, tags, date }: IProps) {
   return (
-    <div>
+    <SRoot>
       {thumbnail && <img src={thumbnail} alt="thumbnail" />}
       <div>{title}</div>
       <div>{summary}</div>
@@ -20,7 +20,7 @@ function Article({ title, summary, thumbnail, tags, date }: IProps) {
         ))}
       </div>
       <div>{date}</div>
-    </div>
+    </SRoot>
   );
 }
 

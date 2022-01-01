@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { postImage } from "../../../apis/article.api";
 import { dataHandlerType } from "../../../types/article.type";
 import { SRoot } from "./style";
 
@@ -32,8 +33,18 @@ function WriteDetail({
     };
   }, [isPublishClicked, animate]);
   if (!isPublishClicked && !animate) return null;
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formData = new FormData();
+    if (e.target.files === null) return;
+    const imageFile = e.target.files[0];
+    formData.append("file", imageFile);
+    const imageResponse = await postImage(formData);
+    const imageUrl = imageResponse.url;
+    onDataChange("thumbnail", imageUrl);
+  };
   return (
     <SRoot isPublishClicked={isPublishClicked}>
+      <input type="file" onChange={handleImageChange} />
       <textarea
         placeholder="당신의 포스트를 짧게 소개해보세요"
         onChange={(e) => onDataChange("summary", e.target.value)}

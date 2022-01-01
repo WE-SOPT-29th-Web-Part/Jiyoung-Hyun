@@ -24,3 +24,18 @@ export const postArticle = async ({ ...articleData }: IPostArticle) => {
     return null;
   }
 };
+
+export const postImage = async (formData: FormData) => {
+  try {
+    const data = await serverAxios.post("/image", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    console.log(data.data);
+    return data.data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
