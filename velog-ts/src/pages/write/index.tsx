@@ -56,8 +56,7 @@ function Write() {
       <WriteBody onDataChange={handleDataChange} />
       <WriteButton setIsPublishClicked={setIsPublishClicked} />
       <WriteDetail
-        articleData={articleData}
-        setArticleData={setArticleData}
+        onDataChange={handleDataChange}
         isPublishClicked={isPublishClicked}
         setIsPublishClicked={setIsPublishClicked}
         submitArticle={submitArticle}

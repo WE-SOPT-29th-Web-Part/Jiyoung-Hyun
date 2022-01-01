@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { IPostArticle } from "../../../types/article.type";
+import { dataHandlerType } from "../../../types/article.type";
 import { SRoot } from "./style";
 
 interface IProps {
-  articleData: IPostArticle;
-  setArticleData: React.Dispatch<React.SetStateAction<IPostArticle>>;
+  onDataChange: dataHandlerType;
   isPublishClicked: boolean;
   setIsPublishClicked: React.Dispatch<React.SetStateAction<boolean>>;
   submitArticle: () => void;
 }
 function WriteDetail({
-  setArticleData,
+  onDataChange,
   isPublishClicked,
   setIsPublishClicked,
   submitArticle,
@@ -32,18 +31,12 @@ function WriteDetail({
       }
     };
   }, [isPublishClicked, animate]);
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setArticleData((articleData) => ({
-      ...articleData,
-      summary: e.target.value,
-    }));
-  };
   if (!isPublishClicked && !animate) return null;
   return (
     <SRoot isPublishClicked={isPublishClicked}>
       <textarea
         placeholder="당신의 포스트를 짧게 소개해보세요"
-        onChange={handleChange}
+        onChange={(e) => onDataChange("summary", e.target.value)}
       />
       <button onClick={() => setIsPublishClicked(false)}>취소하기</button>
       <Link to="/">
